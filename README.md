@@ -1,5 +1,5 @@
 # MySensors Li-po/USB powered wirelles node
-Run by atmega328p and 18500 Li-po battery with integrated USB charger and battery protection IC. Supports ATSHA204A CryptoAuth chip and DS18B20 temperature IC.
+PCB size as 18500 Li-po battery board with ATmega328p with integrated USB charger and battery protection IC. Supports ATSHA204A CryptoAuth chip and DS18B20 temperature IC.
 
 
 Supported radios:
@@ -32,4 +32,12 @@ Pins used:
 
 [Order now at PCBs.io](https://PCBs.io/share/4qbyd)
 
+### ATmega328p fuses
+- **HIGH:** DA
+- **LOW:** E2
+- **EXTENDED:** 06
 
+**NOTE:**
+HEX files already contain *Sensebender Micro* bootloader - fully ready for MySensors network and [OTA updates](https://www.mysensors.org/about/ota), can be flashed with [Arduino as ISP programmer](https://www.arduino.cc/en/Tutorial/ArduinoISP) or any other AVR-ISP
+
+*In the PCBs.io repo, DS18B20 is fliped by 180°, when you soldering don't forget to flip it. I'm working on the newer version which will correct that*
