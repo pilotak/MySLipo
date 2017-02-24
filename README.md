@@ -1,6 +1,10 @@
 # MySensors Li-po/USB powered wirelles node
 PCB size as 18500 Li-po battery board with ATmega328p with integrated USB charger and battery protection IC. Supports ATSHA204A CryptoAuth chip and DS18B20 temperature IC.
 
+### Power consumption
+Sleep: 14.1uA
+Wakeup: 18.2mA
+
 
 Supported radios:
 * NRF24L01 SMD
