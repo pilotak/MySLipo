@@ -15,22 +15,13 @@
  * This program is free software; you can redistribute it and/or
  * modify it under the terms of the GNU General Public License
  * version 2 as published by the Free Software Foundation.
- *
- *******************************
- *
- * DESCRIPTION
- *
- * This is an example that demonstrates how to report the battery level for a sensor
- * Instructions for measuring battery capacity on A0 are available here:
- * http://www.mysensors.org/build/battery
- *
  */
 
 //#define MY_DEBUG
 
 #define MY_OTA_FIRMWARE_FEATURE
 #define MY_RADIO_NRF24
-#define MY_RF24_PA_LEVEL RF24_PA_MAX // RF24_PA_MAX
+#define MY_RF24_PA_LEVEL RF24_PA_LOW // RF24_PA_MAX
 
 #include <MySensors.h>
 #include <DallasTemperature.h>
@@ -63,7 +54,7 @@ void setup(){
 
 void presentation(){
   // Send the sketch version information to the gateway and Controller
-  sendSketchInfo("MySLipo", "1.0");
+  sendSketchInfo("MySLipo", "2.0");
   present(CHILD_ID, S_TEMP);
 }
 

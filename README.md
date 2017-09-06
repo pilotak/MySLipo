@@ -9,32 +9,26 @@ Wakeup: 18.2mA
 Supported radios:
 * NRF24L01 SMD
 * NRF24L01+LNA+PA SMD
-* RFM69W
-
-Pins available:
-* D3
-* D4 (used for 1-Wire with R2 pull-up)
-* D5 (1-Wire supply with R2 pull-up)
-* SDA (I2C with R3 pull-up)
-* SCL (I2C with R4 pull-up)
-* A0 (optional R7 pull-down)
-* A1
 
 Pins used:
-* D2 = IRQ respectively DIO0
+* D2 = reed switch 1
+* D3 = reed switch 2
+* D4 = 1-Wire bus with R2 pull-up to D5
+* D5 = 1-Wire supply
 * D9 = CE pin
-* D10 = CSN respectively NSS
+* D10 = CSN
 * SPI = radios
 * A2 = ATSHA204A
-* A8 = battery monitor
+* A7 = battery monitor
 
 ## PCB top view
-![PCB top view](https://s3.amazonaws.com/maker.works.boards/svgs/a8b670172ba2305c976bdec733c1f8e19b4596c7f034bc854a0c1bcfbb4d4a11/top.svg.s.png?updated=1482859644)
+![PCB top view](./images/MySLipo_v2.0_Top.png)
 ## PCB bottom view
-![PCB bottom view](https://s3.amazonaws.com/maker.works.boards/svgs/a8b670172ba2305c976bdec733c1f8e19b4596c7f034bc854a0c1bcfbb4d4a11/bottom.svg.s.png?updated=1482859644)
+![PCB bottom view](./images/MySLipo_v2.0_Bottom.png)
 
 
-[Order now at PCBs.io](https://PCBs.io/share/4qbyd)
+## Schematic
+![PCB bottom view](./images/sch.png)
 
 ### ATmega328p fuses
 - **HIGH:** DA
@@ -43,5 +37,3 @@ Pins used:
 
 **NOTE:**
 HEX files already contain *Sensebender Micro* bootloader - fully ready for MySensors network and [OTA updates](https://www.mysensors.org/about/ota), can be flashed with [Arduino as ISP programmer](https://www.arduino.cc/en/Tutorial/ArduinoISP) or any other AVR-ISP
-
-*In the PCBs.io repo, DS18B20 is fliped by 180°, when you soldering don't forget to flip it. I'm working on the newer version which will correct that*
