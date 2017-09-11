@@ -2,7 +2,7 @@
 PCB size as 18500 Li-po battery board with ATmega328p with integrated USB charger and battery protection IC. Supports ATSHA204A CryptoAuth chip and DS18B20 temperature IC.
 
 ### Power consumption
-Sleep: 14.1uA
+Sleep: 58.1uA
 Wakeup: 18.2mA
 
 
@@ -15,6 +15,7 @@ Pins used:
 * D3 = reed switch 2
 * D4 = 1-Wire bus with R2 pull-up to D5
 * D5 = 1-Wire supply
+* D7 = LED indication
 * D9 = CE pin
 * D10 = CSN
 * SPI = radios

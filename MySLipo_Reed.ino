@@ -28,6 +28,7 @@
 const int BATTERY_SENSE_PIN = A7;
 const int REED1_PIN = 2;
 const int REED2_PIN = 3;
+const int LED_PIN = 7;
 
 #define REED1_CHILD_ID 1
 #define REED2_CHILD_ID 2
@@ -39,6 +40,7 @@ void presentation(){
   // Send the sketch version information to the gateway and Controller
   sendSketchInfo("MySLipo reed", "2.0");
   present(REED1_CHILD_ID, S_DOOR);
+  sleep(5);
   present(REED2_CHILD_ID, S_DOOR);
 }
 
@@ -57,6 +59,9 @@ void loop(){
   static uint8_t sentValue = 2;
   static uint8_t sentValue2 = 2;
   
+  pinMode(LED_PIN, OUTPUT);
+  digitalWrite(LED_PIN, HIGH);
+  
   // Short delay to allow buttons to properly settle
   sleep(5);
 
@@ -64,6 +69,7 @@ void loop(){
 
   if (value != sentValue) {
     // Value has changed from last transmission, send the updated value
+    debug("Reed switch 1 changed\n");
     send(msg.set(value==HIGH));
     sentValue = value;
   }
@@ -72,31 +78,27 @@ void loop(){
 
   if (value != sentValue2) {
     // Value has changed from last transmission, send the updated value
+    debug("Reed switch 2 changed\n");
     send(msg2.set(value==HIGH));
     sentValue2 = value;
   }
-  
-#ifdef MY_DEBUG
-  Serial.print("Temp: ");
-  Serial.print(temperature);
-  Serial.println(" C");
-#endif
   
   // get the battery Voltage
   float batteryV = analogRead(BATTERY_SENSE_PIN) * 0.00433365917; //((R1+R2)/R2)*1.1/1023
   byte batteryP = mapfloat(batteryV, 2.5, 4.2, 0, 100); // 2.5V cutoff voltage for USB charger circut, 4.2V fully charged Li-po
   batteryP = constrain(batteryP, 0, 100); // prevet overflow
 
-#ifdef MY_DEBUG
-  Serial.print("Battery voltage: ");
-  Serial.print(batteryV);
-  Serial.println(" V");
-  Serial.print("Battery percentage: ");
-  Serial.print(batteryP);
-  Serial.println(" %");
-#endif
+  char output_buffer[80];
+  char *output_pointer;
+  sprintf (output_buffer, "Battery voltage: %.2fV\nBattery percentage: %i%%\n", batteryV, batteryP);
+  memcpy(output_pointer, output_buffer, 80);
+
+  debug(output_pointer);
 
   sendBatteryLevel(batteryP);
+
+  digitalWrite(LED_PIN, LOW);
+  pinMode(LED_PIN, INPUT); // uses less power when pin set to input
 
   // Sleep until something happens with the sensor
   sleep(REED1_PIN-2, CHANGE, REED2_PIN-2, CHANGE, 0);
