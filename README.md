@@ -1,16 +1,17 @@
 # MySensors Li-po/USB powered wirelles node
-PCB size as 18500 Li-po battery board with ATmega328p with integrated USB charger and battery protection IC. Supports ATSHA204A CryptoAuth chip and DS18B20 temperature IC.
+[![Build Status](https://travis-ci.org/pilotak/MySLipo.svg?branch=master)](https://travis-ci.org/pilotak/MySLipo)
+
+PCB size as 18500 Li-po battery board with ATmega328p with integrated USB charger and battery protection IC. Supports ATSHA204A CryptoAuth chip, DS18B20 temperature IC and Meder reed switch.
 
 ### Power consumption
-Sleep: 58.1uA
-Wakeup: 18.2mA
+* sleep: 58.1uA
+* wakeup: 18.2mA
 
-
-Supported radios:
+### Supported radios:
 * NRF24L01 SMD
 * NRF24L01+LNA+PA SMD
 
-Pins used:
+### Pins used:
 * D2 = reed switch 1
 * D3 = reed switch 2
 * D4 = 1-Wire bus with R2 pull-up to D5
@@ -35,6 +36,3 @@ Pins used:
 - **HIGH:** DA
 - **LOW:** E2
 - **EXTENDED:** 06
-
-**NOTE:**
-HEX files already contain *Sensebender Micro* bootloader - fully ready for MySensors network and [OTA updates](https://www.mysensors.org/about/ota), can be flashed with [Arduino as ISP programmer](https://www.arduino.cc/en/Tutorial/ArduinoISP) or any other AVR-ISP
