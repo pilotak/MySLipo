@@ -28,10 +28,6 @@ PCB size as 18500 Li-po battery board with ATmega328p with integrated USB charge
 ## PCB bottom view
 ![PCB bottom view](./images/MySLipo_v2.0_Bottom.png)
 
-
-## Schematic
-![PCB bottom view](./images/sch.png)
-
 ### ATmega328p fuses
 - **HIGH:** DA
 - **LOW:** E2
