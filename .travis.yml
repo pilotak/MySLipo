@@ -12,7 +12,7 @@ install:
   - platformio update
 
 script:
-  - platformio run -e MySLipoTemp
+  - platformio run -e MySLipoTemp -e MySLipoReed
 
 notifications:
   email:
