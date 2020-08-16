@@ -40,7 +40,7 @@ jobs:
       - name: Build
         if: success()
         run: |
-          platformio run -e mqtt_weather_display -e mqtt_weather_display_no_rtc
+          platformio run -e MySLipoTemp -e MySLipoReed
 
       - name: Create release
         if: ${{ success() && steps.prepare.outputs.version != null }}
