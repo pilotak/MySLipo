@@ -1,5 +1,6 @@
 # MySensors Li-po/USB powered wirelles node
-[![Build Status](https://travis-ci.org/pilotak/MySLipo.svg?branch=master)](https://travis-ci.org/pilotak/MySLipo)
+[![Build status](https://github.com/pilotak/MySLipo/workflows/build/badge.svg)](https://github.com/pilotak/MySLipo/actions)
+[![Framework Badge Arduino](https://img.shields.io/badge/framework-arduino-00979C.svg)](https://arduino.cc)
 
 PCB size as 18500 Li-po battery board with ATmega328p with integrated USB charger and battery protection IC. Supports ATSHA204A CryptoAuth chip, DS18B20 temperature IC and Meder reed switch.
 
